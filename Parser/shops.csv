@@ -478,6 +478,7 @@ Condom Shop;/store/condom-shop/
 Connectify;/store/connectify/
 Conquerors blade;/store/conquerors-blade/
 Conquest;/store/conquest-watches/
+Contented;/store/contented/
 ConteShop;/store/conteshop/
 Converse;/store/converse/
 Convert Monster;/store/convertmonster/
@@ -506,6 +507,7 @@ Cropp;/store/cropp/
 Cross;/store/cross/
 CrossFire;/store/cross-fire/
 Crossout;/store/crossout/
+Crowfall;/store/crowfall/
 CRSED;/store/cuisine-royale/
 Crypterium;/store/crypterium/
 CS.Money;/store/cs-money/
@@ -897,12 +899,10 @@ Google AdWords;/store/adwords/
 Google Play;/store/playmarket/
 GoPro;/store/gopro/
 GoProtect;/store/goprotect/
-Gosso;/store/gosso/
 GP.Cool;/store/gp-cool/
 Grab;/store/grab/
 Grabr;/store/grabr/
 Gracy;/store/gracy/
-GradMart;/store/gradmart/
 Grafea;/store/grafea/
 Gramix;/store/gramix/
 Grand Flora;/store/grand-flora-ru/
@@ -1299,6 +1299,7 @@ LookFantastic;/store/lookfantastic/
 Lookupfare;/store/lookupfare/
 Lootcase;/store/lootcase/
 Lords Mobile;/store/lordsmobile/
+LOST ARK;/store/lost-ark/
 LOT;/store/lot/
 Loud Sound;/store/loudsound/
 Loudplay;/store/loudplay/
@@ -1309,7 +1310,6 @@ LOVE REPUBLIC;/store/love-republic/
 Lovely Kids;/store/lovely-kids/
 Lovelywholesale;/store/lovelywholesale/
 LPgenerator;/store/lpgenerator/
-LPmotor;/store/lpmotor/
 LTmix;/store/ltmix/
 Lucky Print;/store/lucky-print/
 LuckyCosmetics;/store/luckycosmetics/
@@ -1443,6 +1443,7 @@ Moschino;/store/moschino/
 Mothercare;/store/mothercare/
 Motocms;/store/motocms/
 Motoroil24;/store/motoroil24/
+Mottor;/store/lpmotor/
 Moulinex;/store/moulinex/
 Movavi;/store/movavi/
 Movenpick;/store/movenpick/
@@ -1514,6 +1515,7 @@ Newchic;/store/newchic/
 Newegg;/store/newegg/
 NewMart;/store/newmart/
 NEXT;/store/next/
+NEXT RP;/store/nextrp/
 NextGame;/store/next-game/
 NH Hotel;/store/nh-hotel-group/
 Nic.ru (Ru-Center);/store/ru-center/
@@ -1528,10 +1530,10 @@ Nine Colours;/store/ninecolours/
 Ninja World;/store/ninja-world/
 Nippon;/store/nippon/
 NL international;/store/nlstar/
+NO ONE;/store/no-one/
 Nokian;/store/nokiantyres/
 Nomnomka;/store/nomnomka/
 Noon;/store/noon/
-NoOne;/store/no-one/
 Nordman;/store/nordman/
 Nordstar;/store/nordstar/
 NordVPN;/store/nordvpn/
@@ -1751,11 +1753,13 @@ Quke.ru;/store/quke/
 R-Seven;/store/r-seven/
 R01;/store/reggi/
 R2 Online;/store/r2/
+Raid Shadow Legends;/store/raid-shadow-legends/
 Rail Nation;/store/rail-nation/
 Rakamakafit;/store/rakamakafit/
 Rakuten;/store/rakuten/
 Ralf Ringer;/store/ralf-ringer/
 Ralph Lauren;/store/ralph-lauren/
+RAM Pressure;/store/rampressure/
 Ramada;/store/ramada/
 RAMAYOGA;/store/ramayoga/
 RANDEWOO;/store/randewoo/
@@ -1783,7 +1787,7 @@ Redsurf;/store/redsurf/
 Reebok;/store/reebok/
 Refresh;/store/refresh/
 Reg.ru;/store/reg-ru/
-Regen Bogen;/store/regen-bogen/
+Regenbogen;/store/regen-bogen/
 Reima;/store/reima/
 Relax-market;/store/relax-market/
 Renderforest;/store/renderforest/
@@ -2320,7 +2324,6 @@ War and order;/store/war-and-order/
 War Thunder;/store/war-thunder/
 Wardow;/store/wardow/
 WarFrame;/store/warframe/
-Warkit;/store/warkit/
 Watch Cases;/store/watchcases/
 Watch Sport;/store/watchsport/
 Watches 2U;/store/watches2u/
@@ -3003,7 +3006,6 @@ Zopo;/store/zopo/
 Зейтун;/store/zeytun/
 Зелёная точка;/store/zelenaya/
 Зелёная Шина;/store/greentyre/
-Зелёный шар;/store/zelenyishar/
 Зельгрос;/store/selgros/
 Зенит;/store/zenit/
 Зёрна;/store/zyorna/
@@ -3678,7 +3680,6 @@ Zopo;/store/zopo/
 Позвоночник.инфо;/store/pozvonochnik/
 Позитроника;/store/pozitronika/
 Покемон Го;/store/pokemon-go/
-Покер Старс;/store/poker-stars/
 Покорми зверя;/store/pokormi-zverya/
 ПокупкаЛюкс;/store/pokupkalyuks/
 Полароид;/store/polaroid/
@@ -3815,7 +3816,6 @@ Zopo;/store/zopo/
 С.В.И.Н.;/store/swine/
 С.Пудовъ;/store/s-pudov/
 Сhibbis;/store/chibbis/
-Сontented;/store/contented/
 Сreditter;/store/smartcredit/
 Садовый мир;/store/sadovod/
 Сады России;/store/sady-rossii/
@@ -3848,7 +3848,7 @@ Zopo;/store/zopo/
 Сбербанк;/store/sberbank/
 Сбербанк страхование;/store/sberbankstrah/
 СберЗдоровье;/store/docdoc/
-Сбермаркет;/store/instamart/
+СберМаркет;/store/instamart/
 Сбермобайл;/store/sbermobile/
 СберПрайм;/store/sber-praim/
 Свет на Дом;/store/svetnadom/
@@ -4055,7 +4055,6 @@ Zopo;/store/zopo/
 Томдом;/store/tomdom/
 Тонус-клуб;/store/tonusclub/
 Топ Квестов;/store/topkvestov/
-Топ Шоп;/store/topshop/
 Топвизор;/store/topvisor/
 ТопДеталь;/store/topdetal/
 ТопРадар;/store/topradar/
@@ -4187,7 +4186,6 @@ Zopo;/store/zopo/
 Центр Технического Оборудования;/store/centr-to/
 Церебро;/store/cerebro/
 Циан;/store/cian-ru/
-Цирк Аквамарин;/store/akvamarin/
 Цирк дю Солей;/store/cirque-du-soleil/
 Цирк Чудес;/store/wonder-circus/
 Цифровой;/store/cifrovoi/
@@ -4319,7 +4317,6 @@ Zopo;/store/zopo/
 Яндекс Здоровье;/store/health-yandex/
 Яндекс Лавка;/store/lavkayandex/
 Яндекс Маркет;/store/yandex-market/
-Яндекс Маркет (ex.Беру.ру);/store/beru/
 Яндекс Музыка;/store/yandexmuz/
 Яндекс Недвижимость;/store/realtyyandex/
 Яндекс Облако;/store/cloudyandex/

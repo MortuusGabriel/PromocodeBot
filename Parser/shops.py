@@ -42,21 +42,19 @@ def save_file(items, path):
             writer.writerow([item['name'], item['href']])
 
 
-def get_shops():
+def get_link():
+    search = find(input())
+    print('https://promokodi.net' + search[0]['href'])
+    return('https://promokodi.net' + search[0]['href'])
+
+
+def find(name):
     html = get_html(URL)
-    if html.status_code == 200:
-        shops = get_content(html.text)
-        save_file(shops, FILE)
-        search = find(input(), shops)
-        return('https://promokodi.net' + search[0]['href'])
-
-    else:
-        print('Request error!')
-
-
-def find(name, shops):
+    shops = get_content(html.text)
+    save_file(shops, FILE)
     result = process.extractOne(name, shops)
-    return (result)
+    return result
 
 
-print(get_shops())
+if __name__ == '__main__':
+    get_link()
