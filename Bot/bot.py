@@ -50,8 +50,11 @@ def choose(call):
 @bot.callback_query_handler(func=lambda call: call.data.isnumeric())
 def show(call):
     result = get_promo(PROMOS[int(call.data)]['code_button'])
+    keyboard = types.InlineKeyboardMarkup()
+    url_button = types.InlineKeyboardButton(text="Перейти в магазин", url=result[2])
+    keyboard.add(url_button)
     bot.send_message(call.message.chat.id,
-                     result[1])
+                     result[1], reply_markup=keyboard)
     bot.send_message(call.message.chat.id,
                      'Промокод: ' + result[0])
 

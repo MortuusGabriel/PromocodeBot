@@ -47,6 +47,7 @@ def get_content(link):
 def get_promo(button):
     window_before = driver.window_handles[0]
     button.click()
+    link = driver.current_url
     window_after = driver.window_handles[1]
     if window_before != window_after:
         driver.switch_to.window(window_after)
@@ -55,12 +56,15 @@ def get_promo(button):
         code = driver.find_element_by_id('_copied_promokode').get_attribute('value')
         description = driver.find_element_by_class_name('template-open-offer-description-container').text
     except Exception:
-        print('Особые условия акции. Читайте по ссылке:')
-        code = driver.find_element_by_tag_name('a').get_attribute('href')
+        code = driver.find_element_by_class_name('template-open-offer-no-code-container').text
         description = driver.find_element_by_class_name('template-open-offer-description-container').text
     finally:
-        info = [code, description]
+        info = [code, description, link]
 
+    driver.switch_to.window(window_before)
+    driver.close()
+    driver.switch_to.window(window_after)
+    driver.find_element_by_class_name('close').click()
     return info
 
 
