@@ -34,25 +34,14 @@ def get_content(html):
     return (shops)
 
 
-def save_file(items, path):
-    with open(path, 'w', newline='') as file:
-        writer = csv.writer(file, delimiter=';')
-        writer.writerow(['название', 'href'])
-        for item in items:
-            writer.writerow([item['name'], item['href']])
-
-
-def get_link():
-    search = find(input())
-    print('https://promokodi.net' + search[0]['href'])
-    return('https://promokodi.net' + search[0]['href'])
+def get_link(search):
+    return('https://promokodi.net' + search)
 
 
 def find(name):
     html = get_html(URL)
     shops = get_content(html.text)
-    save_file(shops, FILE)
-    result = process.extractOne(name, shops)
+    result = process.extract(name, shops, limit=3)
     return result
 
 
