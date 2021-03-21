@@ -10,7 +10,7 @@ bot = telebot.TeleBot(config.TOKEN)
 @bot.message_handler(commands=['start'])
 def start(message):
     msg = bot.send_message(message.chat.id,
-                           'Приветствую. Напиши название магазина, а я скину актуальные промокоды для него.')
+                           'Приветствую. Напишите название магазина, а я скину актуальные промокоды для него.')
     bot.register_next_step_handler(msg, shop_choosing)
 
 
@@ -43,7 +43,7 @@ def choose(call):
     msg = bot.send_message(call.message.chat.id,
                            'Промокоды по выбранному магазину:',
                            reply_markup=markup)
-    bot.send_message(call.message.chat.id, 'Тыкай на любой👆')
+    bot.send_message(call.message.chat.id, 'Тыкайте на любой👆')
 
 
 @bot.callback_query_handler(func=lambda call: call.data.isnumeric())
@@ -57,7 +57,7 @@ def show(call):
                      result[1])
     bot.send_message(call.message.chat.id,
                      '✅Промокод: ' + result[0], reply_markup=keyboard)
-    bot.send_message(call.message.chat.id, 'Введи новый магазин или выбери другой промокод')
+    bot.send_message(call.message.chat.id, 'Введите новый магазин или выберите другой промокод')
 
 
 bot.polling(none_stop=True, interval=0)
