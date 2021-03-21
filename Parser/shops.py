@@ -1,6 +1,4 @@
 import requests
-import csv
-import cfscrape
 from bs4 import BeautifulSoup
 from fuzzywuzzy import process
 

@@ -1,0 +1,11 @@
+pyTelegramBotAPI==3.7.2
+beautifulsoup4==4.9.1
+bs4==0.0.1
+chromedriver==2.24.1
+fuzzywuzzy==0.18.0
+selenium==3.141.0
+selenium-wire==4.0.5
+webdriver-manager==3.2.2
+fake-useragent==0.1.11
+config==0.5.0.post0
+requests==2.25.1
