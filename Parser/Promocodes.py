@@ -15,8 +15,8 @@ def interceptor(request):
 
 def get_content(link):
     chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('--headless')
-    chrome_options.headless = True
+    # chrome_options.add_argument('--headless')
+    # chrome_options.headless = True
     driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
     driver.implicitly_wait(5)
     driver.request_interceptor = interceptor
