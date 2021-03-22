@@ -40,6 +40,9 @@ def get_content(link):
 
 def get_promo(title, link):
     chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_options.add_argument('--no-sandbox')
     driver = webdriver.Chrome(chrome_options=chrome_options)
     driver.implicitly_wait(5)
     driver.request_interceptor = interceptor

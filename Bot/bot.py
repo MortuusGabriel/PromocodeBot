@@ -26,7 +26,7 @@ def shop_choosing(message):
     shop3 = types.InlineKeyboardButton(result[2][0]['name'], callback_data=result[2][0]['href'])
     markup.add(shop3)
     msg = bot.send_message(message.chat.id,
-                           'Наиболее подходящие по вашему запросу магазины. Выберите один.',
+                           'Наиболее подходящие по вашему запросу магазины. Выберите один или введите другое название.',
                            reply_markup=markup)
 
 
@@ -43,7 +43,7 @@ def choose(call):
     msg = bot.send_message(call.message.chat.id,
                            'Промокоды по выбранному магазину:',
                            reply_markup=markup)
-    bot.send_message(call.message.chat.id, 'Тыкайте на любой👆')
+    bot.send_message(call.message.chat.id, 'Жмите на любой👆')
 
 
 @bot.callback_query_handler(func=lambda call: call.data.isnumeric())
