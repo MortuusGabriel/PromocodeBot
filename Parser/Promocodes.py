@@ -58,7 +58,10 @@ def get_promo(title, link):
     window_before = driver.window_handles[0]
     button.click()
     link = driver.current_url
-    window_after = driver.window_handles[1]
+    if driver.window_handles[1] != window_before:
+        window_after = driver.window_handles[1]
+    else:
+        window_after = window_before
 
     if window_before != window_after:
         driver.switch_to.window(window_after)
