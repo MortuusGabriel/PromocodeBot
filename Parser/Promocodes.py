@@ -1,4 +1,3 @@
-from seleniumwire import webdriver
 from fake_useragent import UserAgent
 import requests
 from bs4 import BeautifulSoup
@@ -13,6 +12,7 @@ def interceptor(request):
     del request.headers['Referer']
     request.headers['Referer'] = HEADERS['Referer']
 
+
 def get_html(url, params=None):
     session = requests.Session()
     session.headers = HEADERS
@@ -21,60 +21,26 @@ def get_html(url, params=None):
 
     return full_page
 
+
 def get_content(url):
     html = get_html(url)
     soup = BeautifulSoup(html.text, 'html.parser')
-    items = soup.find_all('div', class_='is-cashback-store-offers-list-item-logocol')
+    tovars = soup.find('div', class_='tovars')
+    items = tovars.find_all('div', class_='item-tovars')
     promos = []
     for item in items:
+        description = item.find('div', class_='tovav-content')
+        button = item.find('div', class_='open-tovar')
         promos.append({
-            'title': item.find('h3').get_text(),
+            'title': description.find('a', class_='click-coupon', href='#').get_text().replace('\n', '').replace('\t',
+                                                                                                                 ''),
+            'description': description.find_all('p')[1].get_text().replace(str('\xa0'), ' '),
+            'promo': button.find('a').get('data-code'),
+            'link': button.find('a').get('href')
         })
     promos.append(url)
     return promos
 
-def get_promo(title, link):
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('headless')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-    chrome_options.add_argument('--no-sandbox')
-    driver = webdriver.Chrome(chrome_options=chrome_options)
-    driver.implicitly_wait(5)
-    driver.request_interceptor = interceptor
-    driver.get(link)
-    items = driver.find_elements_by_class_name('is-cashback-store-offers-list-item-logocol')
-    for item in items:
-        header = item.find_element_by_tag_name('h3').text
-        if header == title:
-            button = item.find_element_by_class_name('cashback-store-offers-list-item-btn-container')
-
-
-    window_before = driver.window_handles[0]
-    while len(driver.window_handles) == 1:
-        button.click()
-
-    link = driver.current_url
-    window_after = driver.window_handles[1]
-    if window_before != window_after:
-        driver.switch_to.window(window_after)
-
-    try:
-        code = driver.find_element_by_id('_copied_promokode').get_attribute('value')
-        description = driver.find_element_by_class_name('template-open-offer-description-container').text
-    except Exception:
-        code = driver.find_element_by_class_name('template-open-offer-no-code-container').text
-        description = driver.find_element_by_class_name('template-open-offer-description-container').text
-    finally:
-        info = [code, description, link]
-
-    driver.quit()
-    return info
-
-
-def parse(link):
-    promos = get_content(link)
-    print(get_promo(promos[0]['code_button']))
-
 
 if __name__ == "__main__":
-    parse()
+    print(get_content('https://promokod.pikabu.ru/shops/asos'))

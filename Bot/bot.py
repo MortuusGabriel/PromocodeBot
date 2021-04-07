@@ -1,8 +1,8 @@
 import telebot
 import config
 from telebot import types
-from Parser.shops import find, get_link
-from Parser.Promocodes import get_content, get_promo
+from Parser.shops import find
+from Parser.Promocodes import get_content
 
 bot = telebot.TeleBot(config.TOKEN)
 
@@ -32,13 +32,13 @@ def shop_choosing(message):
 
 @bot.callback_query_handler(func=lambda call: not call.data.isnumeric())
 def choose(call):
-    global PROMOS
-    PROMOS = (get_content(get_link(call.data)))
+    global promos
+    promos = (get_content(call.data))
     markup = types.InlineKeyboardMarkup()
-    for i in PROMOS:
+    for i in promos:
         if type(i) == str:
             break
-        code = types.InlineKeyboardButton('🎁' + i['title'], callback_data=str(PROMOS.index(i)))
+        code = types.InlineKeyboardButton('🎁' + i['title'], callback_data=str(promos.index(i)))
         markup.add(code)
     msg = bot.send_message(call.message.chat.id,
                            'Промокоды по выбранному магазину:',
@@ -48,15 +48,18 @@ def choose(call):
 
 @bot.callback_query_handler(func=lambda call: call.data.isnumeric())
 def show(call):
-    bot.send_message(call.message.chat.id, 'Секунду...')
-    result = get_promo(PROMOS[int(call.data)]['title'], PROMOS[-1])
     keyboard = types.InlineKeyboardMarkup()
-    url_button = types.InlineKeyboardButton(text="Перейти в магазин", url=result[2])
+    url_button = types.InlineKeyboardButton(text="Перейти в магазин", url=promos[int(call.data)]['link'])
     keyboard.add(url_button)
     bot.send_message(call.message.chat.id,
-                     result[1])
-    bot.send_message(call.message.chat.id,
-                     '✅Промокод: ' + result[0], reply_markup=keyboard)
+                     promos[int(call.data)]['description'])
+    if promos[int(call.data)]['promo'] != '':
+        bot.send_message(call.message.chat.id,
+                         '✅Промокод: ' + promos[int(call.data)]['promo'], reply_markup=keyboard)
+    else:
+        bot.send_message(call.message.chat.id,
+                         '✅Промокод не требуется. Прочтите условия акции и перейдите на сайт магазина.',
+                         reply_markup=keyboard)
     bot.send_message(call.message.chat.id, 'Введите новый магазин или выберите другой промокод')
 
 
