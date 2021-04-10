@@ -3,14 +3,27 @@ import config
 from telebot import types
 from Parser.shops import find
 from Parser.Promocodes import get_content
+from Parser.categories import get_categories, get_category_shops
 
 bot = telebot.TeleBot(config.TOKEN)
 
 
 @bot.message_handler(commands=['start'])
 def start(message):
+    categories = get_categories()
+    markup = types.InlineKeyboardMarkup()
+    pair = []
+    for cat in categories:
+        category = types.InlineKeyboardButton(cat['name'], callback_data=cat['href'])
+        pair.append(category)
+        if len(pair) == 2:
+            markup.add(pair[0], pair[1])
+            pair.clear()
+    if len(pair) != 0:
+        markup.add(pair[0])
+
     msg = bot.send_message(message.chat.id,
-                           'Приветствую. Напишите название магазина, а я скину актуальные промокоды для него.')
+                           'Приветствую. Напишите название магазина или выберите категорию.', reply_markup=markup)
     bot.register_next_step_handler(msg, shop_choosing)
 
 
@@ -28,6 +41,25 @@ def shop_choosing(message):
     msg = bot.send_message(message.chat.id,
                            'Наиболее подходящие по вашему запросу магазины. Выберите один или введите другое название.',
                            reply_markup=markup)
+
+
+@bot.callback_query_handler(func=lambda call: call.data.find('category') != -1)
+def category_shops(call):
+    shops = get_category_shops(call.data)
+    markup = types.InlineKeyboardMarkup()
+    triple = []
+    for shop in shops:
+        btn = types.InlineKeyboardButton(shop['name'], callback_data=shop['href'])
+        triple.append(btn)
+        if len(triple) == 3:
+            markup.add(triple[0], triple[1], triple[2])
+            triple.clear()
+    if len(triple) == 2:
+        markup.add(triple[0], triple[1])
+    elif len(triple) == 1:
+        markup.add(triple[0])
+    msg = bot.send_message(call.message.chat.id,
+                           'Магазины по выбранной категории:', reply_markup=markup)
 
 
 @bot.callback_query_handler(func=lambda call: not call.data.isnumeric())
